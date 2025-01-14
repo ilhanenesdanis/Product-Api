@@ -9,6 +9,16 @@ import (
 )
 
 func ConnectDatabase() (*gorm.DB, error) {
+	dsn := "sqlserver://SA:Enes5858*@127.0.0.1:1433?database=ProductDB&trustservercertificate=true"
+	db, err := gorm.Open(sqlserver.Open(dsn), &gorm.Config{})
+	if err != nil {
+		log.Fatalf("Database connection failed: %v", err)
+	}
+	log.Println("connected to database")
+	return db, nil
+}
+
+func GenerateDb() (*gorm.DB, error) {
 
 	masterDSN := "sqlserver://SA:Enes5858*@127.0.0.1:1433?database=master&Encrypt=false&TrustServerCertificate=true"
 	masterDB, err := gorm.Open(sqlserver.Open(masterDSN), &gorm.Config{})

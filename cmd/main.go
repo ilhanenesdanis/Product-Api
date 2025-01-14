@@ -1,7 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"product-api/config"
+)
 
 func main() {
-	fmt.Println("Hello, World!")
+	_, err := config.ConnectDatabase()
+	if err != nil {
+		fmt.Println("Connection Error")
+	}
+
 }

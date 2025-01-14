@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	db, err := config.ConnectDatabase()
+	db, err := config.GenerateDb()
 	if err != nil {
 		log.Fatalf("Database connection failed: %v", err)
 	}
