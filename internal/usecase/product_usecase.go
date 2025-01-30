@@ -17,6 +17,9 @@ type productUsecase struct {
 	repo repository.IProductRepository
 }
 
+func NewProductUsecase(repo repository.IProductRepository) ProductUsecase {
+	return &productUsecase{repo: repo}
+}
 func (u *productUsecase) GetAllProducts() ([]domain.Product, error) {
 	return u.repo.GetAll()
 }
